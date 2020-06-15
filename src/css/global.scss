@@ -1,0 +1,238 @@
+@import url('https://fonts.googleapis.com/css?family=Quicksand');
+@import url('https://fonts.googleapis.com/css?family=Lato:900');
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,700&display=swap');
+
+@mixin test-borders($color) {
+    // border: 1px solid $color;
+}
+
+/* COLOR PALLET */
+$nav_color: #222222;
+
+/* MEDIA QUERY BREAK POINTS */
+$break-xsm: 700px;
+$break-sm: 838px;
+$break-med: 1258px;
+$break-large: 1440px;
+$break-xlarge: 1680px;
+
+@mixin screen-size($media) {
+
+    @if $media==small {
+
+        @media only screen and (max-width: $break-xsm) {
+            @content;
+        }
+
+    }
+
+    @else if $media==iPadProLand {
+
+        @media only screen and (min-device-width: 1366px) and (max-device-width: 1366px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2) {
+
+            @content;
+
+        }
+
+    }
+
+    @else if $media==iPadLand {
+
+        @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2) {
+
+            @content;
+
+        }
+
+    }
+
+    @else if $media==iPad {
+
+        @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 2) {
+
+            @content;
+
+        }
+
+    }
+
+    @else if $media==kindaSmall {
+
+        @media only screen and (min-width: $break-xsm + 1) and (max-width: $break-sm - 1) {
+            @content;
+        }
+
+    }
+
+    @else if $media==medium {
+
+        @media only screen and (min-width: $break-xsm + 1) and (max-width: $break-med - 1) {
+            @content;
+        }
+
+    }
+
+    @else if $media==large {
+
+        @media screen and (min-width: $break-med + 1) and (max-width: $break-large) {
+            @content;
+        }
+
+    }
+
+    @else if $media==xlarge {
+
+        @media screen and (min-width: $break-large + 1) {
+            @content;
+        }
+
+    }
+}
+
+a {
+    text-decoration: none;
+    color: initial;
+}
+
+nav a {
+    text-decoration: none;
+    color: inherit;
+    color: white;
+}
+
+button {
+    font-family: "Quicksand", sans-serif;
+}
+
+.button-input {
+    transition: opacity 0.2s;
+}
+
+.noselect {
+    -webkit-touch-callout: none;
+    /* iOS Safari */
+    -webkit-user-select: none;
+    /* Safari */
+    -khtml-user-select: none;
+    /* Konqueror HTML */
+    -moz-user-select: none;
+    /* Firefox */
+    -ms-user-select: none;
+    /* Internet Explorer/Edge */
+    user-select: none;
+    /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+}
+
+@mixin noSelect() {
+    -webkit-touch-callout: none;
+    /* iOS Safari */
+    -webkit-user-select: none;
+    /* Safari */
+    -khtml-user-select: none;
+    /* Konqueror HTML */
+    -moz-user-select: none;
+    /* Firefox */
+    -ms-user-select: none;
+    /* Internet Explorer/Edge */
+    user-select: none;
+}
+
+/*Main Font-sizes*/
+$h1-font: 45px;
+$h2-font: 28px;
+$h3-font: 30px;
+$h4-font: 15px;
+$p-font: 18px;
+
+
+/*FONTS*/
+$quicksand: 'Quicksand',
+sans-serif;
+$lato: 'Lato',
+sans-serif;
+$open: 'Open Sans',
+sans-serif;
+$grate: 'Darker Grotesque',
+sans-serif;
+
+label {
+    font-family: 'Quicksand', sans-serif;
+    width: initial !important;
+}
+
+.lato {
+    font-family: 'Lato', sans-serif;
+}
+
+.quicksand {
+    font-family: 'Quicksand', sans-serif;
+}
+
+.logo {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 200;
+}
+
+h1 {
+    font-size: $h1-font;
+    line-height: $h1-font + 5;
+    font-family: 'Lato', sans-serif;
+
+    @include screen-size(small) {
+        font-size: $h1-font/1.6;
+    }
+
+    @include screen-size(medium) {
+        font-size: $h1-font/1.5;
+    }
+}
+
+h2 {
+    font-size: $h2-font;
+    line-height: $h2-font + 5;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+
+    @include screen-size(small) {
+        font-size: $h2-font - 4;
+        line-height: ($h2-font/2)+5;
+    }
+}
+
+h3 {
+    font-size: $h3-font;
+    line-height: $h3-font+5;
+    font-family: 'Quicksand', sans-serif;
+
+    @include screen-size(small) {
+        font-size: $h3-font/1.7;
+    }
+
+    @include screen-size(medium) {
+        font-size: $h3-font/1.5;
+    }
+}
+
+h4 {
+    font-size: $h4-font;
+    line-height: $h4-font+5;
+    font-family: 'Quicksand', sans-serif;
+}
+
+p {
+    font-size: $p-font;
+    line-height: $p-font + 5;
+    font-weight: 300;
+    font-family: 'Open Sans', sans-serif;
+    color: #314455;
+
+    @include screen-size(small) {
+        font-size: $p-font - 4;
+    }
+}
+
+.display_none {
+    display: none !important;
+}
